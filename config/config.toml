@@ -1,0 +1,16 @@
+[server]
+    Address        = ":8199"
+    ServerRoot     = ""
+    ServerAgent    = "cps"
+    LogPath        = "/tmp/log"
+    NameToUriType  = 2
+    RouteOverWrite = true
+
+
+[database]
+    debug = true
+    host = "127.0.0.1"
+    port = "3306"
+    name = "cps"
+    user = "root"
+    password = "biwentao123"
