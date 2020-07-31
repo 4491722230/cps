@@ -1,4 +1,4 @@
-package api
+package pull
 
 import (
 	"cps/models"
@@ -23,7 +23,7 @@ func UserInvite(r *ghttp.Request) {
 
 	}
 
-	if user.ID == 0 && user.Agent == false {
+	if user.ID == 0 || user.Agent == false {
 		fmt.Print("")
 		c.ReturnJson(error_code.SYSTEM_ERROR, "您不是代理商")
 	}

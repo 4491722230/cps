@@ -21,7 +21,7 @@ func PushOrder(r *ghttp.Request) {
 	var higherUser models.User
 
 	//userID := r.GetInt64("user_id")
-	buyUserID := r.GetInt64("buy_user_id")
+	buyUserID := r.GetUint("buy_user_id")
 	nickname := r.GetString("nickname")
 	orderSN := r.GetInt64("order_sn")
 	orderID := r.GetInt64("order_id")
@@ -71,6 +71,7 @@ func PushOrder(r *ghttp.Request) {
 	rebatelog.Confirm = confirm
 	rebatelog.OrderID = orderID
 	rebatelog.Nickname = nickname
+	rebatelog.PriceStatus = 1
 
 	higherRebatelog.Level = 3
 	higherRebatelog.Money = goodsPrice * goodShareProfit.Gain2
@@ -86,6 +87,7 @@ func PushOrder(r *ghttp.Request) {
 	higherRebatelog.Confirm = confirm
 	higherRebatelog.OrderID = orderID
 	higherRebatelog.Nickname = nickname
+	higherRebatelog.PriceStatus = 1
 
 	if err := db.DB().Save(&rebatelog).Error; err != nil {
 		fmt.Print(err)

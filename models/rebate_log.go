@@ -1,8 +1,8 @@
 package models
 
 type RebateLog struct {
-	UserID      int64   `json:"user_id"`      //获佣用户
-	BuyUserID   int64   `json:"buy_user_id"`  //购买人id
+	UserID      uint    `json:"user_id"`      //获佣用户
+	BuyUserID   uint    `json:"buy_user_id"`  //购买人id
 	Nickname    string  `json:"nickname"`     //购买人昵称
 	OrderSN     int64   `json:"order_sn"`     //订单编号
 	OrderID     int64   `json:"order_id"`     //订单ID
